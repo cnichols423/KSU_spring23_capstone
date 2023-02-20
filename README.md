@@ -1,1 +1,1 @@
-# EducationThroughPlay
+# Education Through Play
