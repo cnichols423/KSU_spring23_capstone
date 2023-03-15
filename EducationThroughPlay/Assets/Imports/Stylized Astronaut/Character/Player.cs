@@ -6,11 +6,11 @@ public class Player : MonoBehaviour
 {
 
     private Animator anim;
-    private CharacterController controller;
+    //private CharacterController controller;
     private Rigidbody rb;
 
 
-    public float speed = 20f;
+    public float speed = 200f;
     public float turnSpeed = 400.0f;
     
     public float gravity = 20.0f;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        //controller = GetComponent<CharacterController>();
         anim = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponentInChildren<Rigidbody>();
     }
@@ -37,26 +37,26 @@ public class Player : MonoBehaviour
 
         // Implementation of Jump
         //on the ground and space is pressed
-        if (Input.GetKey(KeyCode.Space) && controller.isGrounded)
+        if (Input.GetKey(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 0.001f)
         {
             anim.SetInteger("AnimationPar", 3);
             isJumping = true;
             jumpTemp = 0.0f;
 
         }
-        if (!Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+        if (!Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 0.001f)
         {
             //anim.SetInteger("Jump Start", 0);
         }
 
-        if (controller.isGrounded && !Input.GetKey("w") && !Input.GetKey(KeyCode.Space))
+        if (Mathf.Abs(rb.velocity.y) <= 0.001f && !Input.GetKey("w") && !Input.GetKey(KeyCode.Space))
         {
             anim.SetInteger("AnimationPar", 0);
         }
 
         if(isJumping) {
             jumpTemp = Mathf.Lerp(jumpTemp, jump, Time.deltaTime);
-            controller.Move(transform.up * jumpTemp);
+            //controller.Move(transform.up * jumpTemp);
 
             if(jumpTemp >= .1) {
                 isJumping = false; 
@@ -79,22 +79,23 @@ public class Player : MonoBehaviour
         // Implementation of sprint
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))
         {
-            speed = 40f;
+            speed = 300;
             anim.SetInteger("AnimationPar", 2);
         }
         else
         {
-            speed = 20f;
+            //speed = 200f;
         }
 
-        if (controller.isGrounded)
+        if (Mathf.Abs(rb.velocity.y) <= 0.001f)
         {
             moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
         }
         
         float turn = Input.GetAxis("Horizontal");
-        transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-        controller.Move(moveDirection * Time.deltaTime);
-        moveDirection.y -= gravity * Time.deltaTime;
+        // transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+        rb.AddTorque(0, turn * turnSpeed * Time.deltaTime, 0);
+        rb.AddForce(moveDirection * Time.deltaTime, ForceMode.Force);
+        //moveDirection.y -= gravity * Time.deltaTime;
     }
 }

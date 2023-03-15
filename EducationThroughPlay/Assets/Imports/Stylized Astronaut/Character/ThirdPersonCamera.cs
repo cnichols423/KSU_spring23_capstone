@@ -27,6 +27,9 @@ public class ThirdPersonCamera : MonoBehaviour
         currentY += Input.GetAxis("Mouse Y");
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+
+
+        
     }
 
     private void LateUpdate()
