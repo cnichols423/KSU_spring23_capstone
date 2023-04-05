@@ -12,20 +12,25 @@ using UnityEngine.AI;
 
 public class Ai_NavMesh : MonoBehaviour
 {
-   
-   public Transform target; 
+    // an array of targets for the ai agent to move to 
+    public Transform[] targets;      
+    // the ai agent in the game
+    private NavMeshAgent navAgent; 
+    // the current index for the target array
+    private int currentTargetIndex; 
 
-   private NavMeshAgent navAgent;
-   
     // Start is called before the first frame update
-    /*
+    /*  
 
     In the Start() method, we get a reference to the NavMeshAgent component 
     on the game object by calling GetComponent<NavMeshAgent>().
 
     */
     void Start(){
-        navAgent = GetComponent<NavMeshAgent>(); // get the nav mesh agent component
+        // get the nav mesh agent component
+        navAgent = GetComponent<NavMeshAgent>(); 
+        // set the current index of target array to 0 on start
+        currentTargetIndex = 0; 
     }
 
 
@@ -38,6 +43,15 @@ public class Ai_NavMesh : MonoBehaviour
 
     */
     void Update() {
-        navAgent.SetDestination(target.position); // set the destination for the nav mesh agent
+        if(navAgent.remainingDistance <= navAgent.stoppingDistance){
+            // if ai has reached the target move to next one
+            currentTargetIndex = (currentTargetIndex + 1) % targets.Length;
+            navAgent.SetDestination(targets[currentTargetIndex].position);
+        }
+        
+        else{
+            // else keep moving towards current target
+            navAgent.SetDestination(targets[currentTargetIndex].position); 
+        }
     }
 }
