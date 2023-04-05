@@ -38,20 +38,35 @@ public class Ai_NavMesh : MonoBehaviour
     // Update is called once per frame
     /*
     
-    In the Update() method, we call navAgent.SetDestination(target.position) to set 
-    the destination of the NavMeshAgent to the target position. 
+    In the Update() method, we check to see if the agent has reached the end position.
+    if not we check the remaining distance to next target and the distance the agent needs to stop at
+    if the remainging distance is <= to stop distance
+    ++target index and check to see if we are at the last index in array 
+    if not set next destination and keep moving.
 
     */
-    void Update() {
-        if(navAgent.remainingDistance <= navAgent.stoppingDistance){
-            // if ai has reached the target move to next one
-            currentTargetIndex = (currentTargetIndex + 1) % targets.Length;
-            navAgent.SetDestination(targets[currentTargetIndex].position);
-        }
+   void Update(){
+
+    if (targets.Length == 0) return;
+
+    if (navAgent.remainingDistance <= navAgent.stoppingDistance){
+    
+        // Move to the next target
+        currentTargetIndex++;
+        if (currentTargetIndex >= targets.Length){
         
+            // Reached the end position, stop moving
+            navAgent.isStopped = true;
+            return;
+        }
+
         else{
-            // else keep moving towards current target
-            navAgent.SetDestination(targets[currentTargetIndex].position); 
+        // Set the next target
+        navAgent.SetDestination(targets[currentTargetIndex].position);
+            }
         }
     }
-}
+
+}       
+
+
