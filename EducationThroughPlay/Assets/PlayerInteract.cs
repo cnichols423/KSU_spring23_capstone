@@ -13,12 +13,25 @@ public class PlayerInteract : MonoBehaviour
         // A float that controls the range of player interaction
         float interactRange = 3f;
 
+        // Make a collider array and store every object that is overlapping in an array
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+
+        // Check if any of them are able to be interacted with
+        foreach (Collider collider in colliderArray)
+        {
+            // If the game object has the "Buttons" script attached
+            if (collider.TryGetComponent(out Buttons button))
+            {
+                // Show the floating text
+                button.ShowFloatingText();
+            }
+        }
+
+
         // When the player presses "E"
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Make a collider array and store every object that is overlapping in an array
-            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
-            // For each collider in that array
+            // For each collider in the array
             foreach (Collider collider in colliderArray)
             {
                 // If the game object associated with the collider has the "Buttons" script attached
