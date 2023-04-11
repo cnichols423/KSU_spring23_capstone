@@ -20,7 +20,7 @@ public class AiFollowPlayer : MonoBehaviour
     private NavMeshAgent aiAgent;
     
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         aiAgent = GetComponent<NavMeshAgent>();
     }
