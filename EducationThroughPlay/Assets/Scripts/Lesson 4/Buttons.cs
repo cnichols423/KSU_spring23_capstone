@@ -17,6 +17,80 @@ public class Buttons : MonoBehaviour
     [SerializeField] private GameObject hint = null;
     [SerializeField] private GameObject answer = null;
 
+    // Variables to hold the two materials that you can switch to (optional)
+    public Material redButton = null;
+    public Material greenButton = null;
+
+    // Variable to hold the renderer
+    private Renderer buttonRenderer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Set the renderer
+        buttonRenderer = GetComponent<Renderer>();
+
+        if (redButton != null)
+        {
+            buttonRenderer.material = redButton;
+        }
+    }
+
+    // Function to change the button color upon a correct answer, called by UI windows on close
+    public void SwitchColor()
+    {
+        // Make sure we have the particle effect for answer
+        if (answer == null)
+        {
+            return;
+        }
+
+
+        // Get the correct script from the particle effect, we will have to check for each
+        R1Answer test1 = answer.GetComponent<R1Answer>();
+        if (test1 != null) 
+        {
+            if (test1.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
+            return;
+        }
+        // Test for room 2
+        R2Answer test2 = answer.GetComponent<R2Answer>();
+        if (test2 != null)
+        {
+            if (test2.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
+            return;
+        }
+        // Test for room 3
+        R3Answer test3 = answer.GetComponent<R3Answer>();
+        if (test3 != null)
+        {
+            if (test3.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
+            return;
+        }
+    }
+
+
     // Function to show the UI popup window
     private void ShowPopup()
     {

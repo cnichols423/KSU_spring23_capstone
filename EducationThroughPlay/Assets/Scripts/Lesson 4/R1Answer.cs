@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class R1Answer : MonoBehaviour
 {
+    // Bool to check if the player got the answer correct
+    bool correctAnswer1 = false;
+
     // String to hold User Input
     private string input;
 
@@ -46,6 +49,16 @@ public class R1Answer : MonoBehaviour
 
         // Change the Start Life Time
         main.startLifetime = NewValue;
+
+        // If the player's answer is correct (in this case 1) set the boolean
+        if (NewValue == 2f)
+        {
+            correctAnswer1 = true;
+        }
+        else
+        {
+            correctAnswer1 = false;
+        }
     }
 
     // Called by reset button
@@ -56,5 +69,19 @@ public class R1Answer : MonoBehaviour
 
         // Change the Start Time back to 1 which is it's starting value
         main.startLifetime = 1f;
+
+        // Set the bool to false as the answer is definitely not correct
+        correctAnswer1 = false;
+    }
+
+    // Called by button to see if it should change color, and final cylinder to see if it should drop
+    public bool CompletionCheck()
+    {
+        // This is an accessor for the boolean value
+        if (correctAnswer1 == true)
+        {
+            return true;
+        }
+        else { return false; }
     }
 }
