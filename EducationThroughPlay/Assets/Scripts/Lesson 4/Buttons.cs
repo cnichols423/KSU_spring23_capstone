@@ -98,6 +98,32 @@ public class Buttons : MonoBehaviour
                 buttonRenderer.material = redButton;
             }
         }
+        // Test for room 5
+        R5Answer test5 = answer.GetComponent<R5Answer>();
+        if (test5 != null)
+        {
+            if (test5.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
+        }
+        // Test for room 6
+        R6Answer test6 = answer.GetComponent<R6Answer>();
+        if (test6 != null)
+        {
+            if (test6.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
+        }
     }
 
 
