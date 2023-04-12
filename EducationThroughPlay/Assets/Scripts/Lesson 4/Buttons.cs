@@ -58,7 +58,6 @@ public class Buttons : MonoBehaviour
             {
                 buttonRenderer.material = redButton;
             }
-            return;
         }
         // Test for room 2
         R2Answer test2 = answer.GetComponent<R2Answer>();
@@ -72,7 +71,6 @@ public class Buttons : MonoBehaviour
             {
                 buttonRenderer.material = redButton;
             }
-            return;
         }
         // Test for room 3
         R3Answer test3 = answer.GetComponent<R3Answer>();
@@ -86,7 +84,19 @@ public class Buttons : MonoBehaviour
             {
                 buttonRenderer.material = redButton;
             }
-            return;
+        }
+        // Test for room 4
+        R4Answer test4 = answer.GetComponent<R4Answer>();
+        if (test4 != null)
+        {
+            if (test4.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
         }
     }
 
