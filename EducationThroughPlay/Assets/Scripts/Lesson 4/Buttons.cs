@@ -124,6 +124,19 @@ public class Buttons : MonoBehaviour
                 buttonRenderer.material = redButton;
             }
         }
+        // Test for room 7
+        R7Answer test7 = answer.GetComponent<R7Answer>();
+        if (test7 != null)
+        {
+            if (test7.CompletionCheck() == true)
+            {
+                buttonRenderer.material = greenButton;
+            }
+            else
+            {
+                buttonRenderer.material = redButton;
+            }
+        }
     }
 
 
