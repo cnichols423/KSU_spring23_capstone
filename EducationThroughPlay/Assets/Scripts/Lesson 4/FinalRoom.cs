@@ -23,7 +23,7 @@ public class FinalRoom : MonoBehaviour
         // Check all rooms for completion
         if(r1.CompletionCheck() && r2.CompletionCheck() && r3.CompletionCheck() && r4.CompletionCheck() && r5.CompletionCheck()
         && r6.CompletionCheck() && r7.CompletionCheck() && r8.CompletionCheck() && r9.CompletionCheck()){
-            // Get the collider
+            // Get the collider and the rigid body for the cylinder
             Collider coll = cylinder.GetComponent<Collider>();
             // Disable the collider to drop the cylinder and make the goal reachable
             coll.enabled = false;
