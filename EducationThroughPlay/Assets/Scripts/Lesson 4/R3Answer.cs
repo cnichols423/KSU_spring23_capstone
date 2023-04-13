@@ -146,12 +146,11 @@ public class R3Answer : MonoBehaviour
     }
 
     // Called by User Input Field of the Fourth panel
-    public void GetNewSpeedModifier(string tmp)
+    public void GetNewSpeedModifier(float tmp)
     {
-        // Make input equal the user input, then convert it to a float
-        input = tmp;
-        float NewValue = ConvertUserInputToNumber(input);
-
+        // Make input equal the user input, divide it by 10 as slider gives whole number values
+        float NewValue = tmp/10;
+        
         // Set a variable to the velocity module
         ParticleSystem.VelocityOverLifetimeModule velocityModule = answer3.velocityOverLifetime;
 

@@ -15,9 +15,6 @@ public class R7Answer : MonoBehaviour
     // Bool to check if all inputs are correct
     bool allCorrect = false;
 
-    // String to hold User Input
-    private string input;
-
     // Variable to hold Particle System
     private ParticleSystem answer7;
 
@@ -46,25 +43,21 @@ public class R7Answer : MonoBehaviour
         return newCurve;
     }
 
-    // This converts a user's input to a float
-    private float ConvertUserInputToNumber(string input)
-    {
-        // Create a string out of the numbers, periods and hyphens in the text
-        string cleanedInput = Regex.Replace(input, "[^0-9.-]", "");
-
-        // Parse the cleanedInput into a float called result
-        float.TryParse(cleanedInput, out float result);
-
-        // If parsing was successful return the float, else the value will be 0 which is a valid answer
-        return result;
-    }
-
     // Called by User Input Field of the first panel
-    public void GetNewStartPoint(string tmp)
+    public void GetNewStartPoint(float tmp)
     {
-        // Make input equal the user input, then convert it to a float
-        input = tmp;
-        float NewValue = ConvertUserInputToNumber(input);
+        // Make a new value
+        float NewValue;
+
+        //The value is the input/10 because the slider uses whole numbers
+        if (tmp != 0)
+        {
+            NewValue = tmp/10;
+        }
+        else
+        {
+            NewValue = 0f;
+        }
 
         // Set a variable to the size over lifetime module
         var sizeModule = answer7.sizeOverLifetime;
@@ -100,11 +93,20 @@ public class R7Answer : MonoBehaviour
     }
 
     // Called by User Input Field of the second panel
-    public void GetNewEndPoint(string tmp)
+    public void GetNewEndPoint(float tmp)
     {
-        // Make input equal the user input, then convert it to a float
-        input = tmp;
-        float NewValue = ConvertUserInputToNumber(input);
+        // Make a new value
+        float NewValue;
+
+        //The value is the input/10 because the slider uses whole numbers
+        if (tmp != 0)
+        {
+            NewValue = tmp/10;
+        }
+        else
+        {
+            NewValue = 0f;
+        }
 
         // Set a variable to the size over lifetime module
         var sizeModule = answer7.sizeOverLifetime;
@@ -160,6 +162,22 @@ public class R7Answer : MonoBehaviour
         correctAnswer2 = false;
 
         allCorrect = false;
+    }
+
+    // Called by Next, Reset and Enter buttons
+    public void SetBooleans(){
+        // This is needed because it is possible to have a correct answer by default
+        // on the second panel and it needs to be updated to check normally
+        // but we will just call this on button press instead
+        if (p1 == 0f){
+            correctAnswer1 = true;
+        }
+        if (p2 == 1f){
+            correctAnswer2 = true;
+        }
+        if (correctAnswer1 && correctAnswer2){
+            allCorrect = true;
+        }
     }
 
     // Called by button to see if it should change color, and final cylinder to see if it should drop
