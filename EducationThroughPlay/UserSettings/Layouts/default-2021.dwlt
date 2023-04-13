@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 152
+  controlID: 56
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 79
+  controlID: 62
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 80
+  controlID: 63
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 320
     height: 894
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -244,14 +244,14 @@ MonoBehaviour:
     y: 894
     width: 1887
     height: 405
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,10 +338,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9a5c0300
-      m_LastClickedID: 220314
-      m_ExpandedIDs: c6b1fcff205bfeff4a5ffeff12fbffff007000009a5c0300
+      scrollPos: {x: 0, y: 156}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 9a29edff9c29edffa229edff50bdeeff88bfeeff8e4cf0ff924ef0ffa858f0ffb058f0ffb458f0ff3c60f0ff4260f0ff4460f0ff96e6f1ff0ee8f1ff4af6f1ff50f6f1ff907ef3ff8283f3ff0288f3ff128df3ffa8f6f3ffaaf6f3ffb2f6f3ff2c08f4ff2e08f4ff3008f4ff0a98f4ff0e98f4ff1098f4ff4c1ef6ffd820f6ffbc56f6ffc256f6ffc456f6ff206cf6ff346cf6ff386cf6ff3a6cf6ff74f2f7ff32f4f7ff5e0ef8ffda96f9ffbc9af9ff3823fbff7c2afbffdc41fbff2ac9fcffd8d0fcff4c64feff046ffeff36fbffffa697000064e30000e0e4000048e5000014e70000e6e8000018ea00008aec00008cef0000def300005ef500009e2f010000b10100a0b301009eb5010038bd0100a6c00100e4c00100e2f80100567a02003a7c02007a7e02000a8102007e860200788b0200508c020020dc02002aef02007ef4020014fb0200da4a0300f0b50300ceb7030072ef030032130400901804007e571400305f1400b261140086831400dc8f14003a901400249a1400a0a51400e8aa140010af1400febe2b00a6c02b0084c22b00e6cc2b0000d02b0092d02b00bcd02b00f2cc2d00dce52d005ce92d00aafd2d00446a300030aa300012ba3000f6c1300068fa3400c4fa3400fefa3400fafb34004cfc34008cfe3400befe3400d6ff3400a2003500000135003e013500e2043500f20435005006350012253500562e3500623e3500b255350040563500b48f3900109039004a9039004691390098913900d89339004c9639008a9639008e9839002e9a39003e9a3900389b39009c9b39007e9d3900d89d3900669e3900fc9f3900f2a039001aa139005eba3900a2c339008ceb3900
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -63.90189, y: 3.251217, z: 109.95639}
+    m_Target: {x: -35.84484, y: 3.796064, z: 144.44711}
     speed: 2
-    m_Value: {x: -63.90189, y: 3.251217, z: 109.95639}
+    m_Value: {x: -35.84484, y: 3.796064, z: 144.44711}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -672,13 +672,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.052055076, y: -0.94777304, z: 0.23193595, w: -0.21272066}
+    m_Target: {x: -0.04126209, y: -0.50970674, z: 0.024488831, w: -0.8590337}
     speed: 2
-    m_Value: {x: -0.052054357, y: -0.9477599, z: 0.23193274, w: -0.21271773}
+    m_Value: {x: -0.041261226, y: -0.50969607, z: 0.024488317, w: -0.8590157}
   m_Size:
-    m_Target: 6.869247
+    m_Target: 25.363106
     speed: 2
-    m_Value: 6.869247
+    m_Value: 25.363106
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -928,22 +928,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Lesson 6
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Lesson 6
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\cnich\Documents\GitHub\EducationThroughPlay\EducationThroughPlay
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 24}
-    m_SelectedIDs: eecf0000
-    m_LastClickedID: 53230
-    m_ExpandedIDs: 00000000e8ce0000eace0000ecce0000eece0000f0ce0000f2ce0000f4ce0000f6ce0000f8ce000000ca9a3b
+    scrollPos: {x: 0, y: 68}
+    m_SelectedIDs: c6ce0000
+    m_LastClickedID: 52934
+    m_ExpandedIDs: 00000000bece0000c0ce0000c2ce0000c4ce0000c6ce0000c8ce0000cace0000ccce0000cece0000a8d100008ed6000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -971,7 +971,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e8ce0000eace0000ecce0000eece0000f0ce0000f2ce0000f4ce0000f6ce0000f8ce0000
+    m_ExpandedIDs: 00000000bece0000c0ce0000c2ce0000c4ce0000c6ce0000c8ce0000cace0000ccce0000cece0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -996,8 +996,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c2340300
-    m_LastClickedInstanceID: 210114
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000365c0000c060000000000000
     m_RenameOverlay:

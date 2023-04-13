@@ -25,6 +25,12 @@ public class PlayerInteract : MonoBehaviour
                 // Show the floating text
                 button.ShowFloatingText();
             }
+            // If the game object has the "ButtonIneraction" script attached
+            if (collider.TryGetComponent(out ButtonInteraction buttonInteract))
+            {
+                // Show the floating text
+                buttonInteract.ShowFloatingText();
+            }
         }
 
 
@@ -39,6 +45,13 @@ public class PlayerInteract : MonoBehaviour
                 {
                     // Call the interact function in the "Buttons" script
                     button.Interact();
+                }
+
+                // If the game object associated with the collider has the "ButtonIneration" script attached
+                if (collider.TryGetComponent(out ButtonInteraction buttonInteract))
+                {
+                    // Call the interact function in the "Buttons" script
+                    buttonInteract.Interact();
                 }
             }
             // End of loop

@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,3 +21,5 @@ public class NavButtonStart : MonoBehaviour
         aiNavMesh.enabled = true; // enable the navigation script
     }
 }
+
+*/
