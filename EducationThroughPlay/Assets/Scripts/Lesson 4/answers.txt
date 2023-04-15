@@ -1,0 +1,28 @@
+All answers are sorted by room and are listed in order.
+
+Room 1 Answer:
+2
+
+Room 2 Answer:
+3
+
+Room 3 Answers:
+3, 0, 0, 0.2
+
+Room 4 Answers:
+1, 4, grey
+
+Room 5 Answers:
+yellow, red
+
+Room 6 Answers:
+2, 2, 2
+
+Room 7 Answers:
+0, 1
+
+Room 8 Answer:
+0.1
+
+Room 9 Answer:
+4
