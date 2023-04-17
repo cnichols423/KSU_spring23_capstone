@@ -17,12 +17,10 @@ public class Ai_NavMesh : MonoBehaviour
     // the ai agent in the game
     private NavMeshAgent navAgent; 
     // the current index for the target array
-    private int currentTargetIndex; 
-    // flag to see if moving is allowed yet
-    public bool isMoving;
-    
-    
-    
+    public int currentTargetIndex; 
+    // reference to button interaction script
+    public ButtonInteraction buttonInteraction = null;
+
     
     // Start is called before the first frame update
     /*  
@@ -34,12 +32,22 @@ public class Ai_NavMesh : MonoBehaviour
     private void Start(){
         // get the nav mesh agent component
         navAgent = GetComponent<NavMeshAgent>(); 
-        //currentTargetIndex = 0;
-        isMoving = false;
+       // check if targets array is null or empty
+       if (targets == null || targets.Length == 0) {
+            Debug.LogError("No targets assigned to the NavMesh agent.");
+            return;
+        }
+        currentTargetIndex = 0;
+       
+        
     }
 
 
-
+    public void SetDestination(Transform destination){
+        navAgent.SetDestination(destination.position);
+    }
+    
+    
     // Update is called once per frame
     /*
     
@@ -53,32 +61,27 @@ public class Ai_NavMesh : MonoBehaviour
   
     // Update is called once per frame
    void Update(){
-        if (isMoving && navAgent.remainingDistance <= navAgent.stoppingDistance){
+    if (buttonInteraction.interacted){
+        if (targets.Length == 0) return;
+
+        if (navAgent.remainingDistance <= navAgent.stoppingDistance){
+            // Move to the next target
             currentTargetIndex++;
-            if (currentTargetIndex >= navAgent.path.corners.Length){
-                isMoving = false;
-                //currentTargetIndex = 0;
-                navAgent.ResetPath();
+            if (currentTargetIndex >= targets.Length){
+                // Reached the end position, stop moving
+                navAgent.isStopped = true;
+                return;
             }
-            else{
-                navAgent.SetDestination(navAgent.path.corners[currentTargetIndex]);
-            }
+
+    // Set the next target
+    navAgent.SetDestination(targets[currentTargetIndex].position);
         }
     }
-
-    // sets targets for array on script start
-    public void SetTargets(Transform[] targets){
-        navAgent.isStopped = true;
-        navAgent.ResetPath();
-        currentTargetIndex = 0;
-        isMoving = false;
-
-        if (targets.Length > 0){
-            navAgent.SetDestination(targets[currentTargetIndex].position);
-            currentTargetIndex++;
-            isMoving = true;
-        }
+        
     }
+
+
+   
 
    
 

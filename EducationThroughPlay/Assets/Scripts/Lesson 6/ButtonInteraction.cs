@@ -1,94 +1,73 @@
-// Cohen Nichols ButtonInteraction script for starting the nav mesh agent to move
-// this one controlls Ai_NavMesh.cs
+// cohen nichols button interaction 
+// modified version of button.cs
 
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ButtonInteraction : MonoBehaviour
 {
-    // Reference to the text object that displays the "press E to interact" message
-    public TextMeshProUGUI interactionText;
 
-    // Reference to the button object's collider
-    private Collider buttonCollider;
+    // Initialize a variable to hold the message that a player is able to interact
+    [SerializeField] private GameObject floattext;
+    // Reference to the target index variable in Ai_NavMesh.cs
+    [SerializeField] private Ai_NavMesh aiNavMesh;
+    // Reference to the NavMeshAgent component of the AI character
+    [SerializeField] private UnityEngine.AI.NavMeshAgent navAgent;
+    public bool interacted;
 
-    // Reference to the player object
-    public GameObject player;
 
-    // Reference to the Ai_NavMesh script
-    public Ai_NavMesh aiNavMesh;
-
-    // The maximum distance at which the player can interact with the button
-    public float interactionDistance = 3.0f;
-
-    // A boolean to track if the player is close enough to interact with the button
-    private bool isInRange = false;
-
-    // A boolean to track if the button can be interacted with
-    public bool isInteractable = true;
-
-    // An array of targets for the AI agent to move towards
-    public Transform[] targets;
-
-    // Start is called before the first frame update
-    void Start()
+    // Function to show the floating text letting player know they can interact
+    public void ShowFloatingText()
     {
-        // Get a reference to the button's collider
-        buttonCollider = GetComponent<Collider>();
+        floattext.SetActive(true);
+    }
+
+    // Function to hide the floating text letting the player know they cannot interact
+    public void DestroyFloatingText()
+    {
+        floattext.SetActive(false);
+    }
+
+    // Function that gets called by "PlayerInteract"
+    public void Interact()
+    {
+        navAgent.GetComponent<Ai_NavMesh>().currentTargetIndex = 0;
+        interacted = true;
+        
+        navAgent.SetDestination(aiNavMesh.targets[aiNavMesh.currentTargetIndex].position);
+        aiNavMesh.currentTargetIndex++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if the player is close enough to interact with the button
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance <= interactionDistance)
+        // Check if the 
+        // The float that controls the range of player interaction
+        float interactRange = 5f;
+
+        // Boolean to see if player is in range
+        bool playerCheck = false;
+
+        // Make a collider array and store every object that is overlapping in an array
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+
+        // Check each collider in the array
+        foreach (Collider collider in colliderArray)
         {
-            isInRange = true;
-        }
-        else
-        {
-            isInRange = false;
+            // If one of them is the player
+            if (collider.TryGetComponent(out PlayerInteract player))
+            {
+                // Set playerCheck to true
+                playerCheck = true;
+            }
         }
 
-        // Check if the player is pressing the E key and if the button is interactable
-        if (isInRange && isInteractable && Input.GetKeyDown(KeyCode.E))
+        // Check if the playerCheck remained false
+        if (playerCheck == false)
         {
-            // Call the OnButtonInteract() method to perform the interaction with the button
-            OnButtonInteract();
+            // If it did destroy the floating text
+            DestroyFloatingText();
         }
-
-        // Display the "press E to interact" message if the player is close enough to interact with the button
-        // and the button is interactable
-        if (isInRange && isInteractable)
-        {
-            interactionText.text = "Press E to interact";
-        }
-        else
-        {
-            interactionText.text = "";
-        }
-    }
-
-    // This method is called when the player interacts with the button
-    void OnButtonInteract()
-{
-    // Set isInteractable to false to prevent further interaction with the button
-    isInteractable = false;
-
-    // Do something when the button is interacted with, e.g. play a sound, animate the button, etc.
-
-    // If needed, you can also call methods on other scripts or game objects here,
-    // e.g. Ai_NavMesh script to move an AI to a new location.
-    if (aiNavMesh != null && aiNavMesh.targets != null && aiNavMesh.targets.Length > 0)
-    {
-        aiNavMesh.SetTargets(aiNavMesh.targets);
-        aiNavMesh.isMoving = true;
     }
 }
-
-} // end of script
-
-
-
