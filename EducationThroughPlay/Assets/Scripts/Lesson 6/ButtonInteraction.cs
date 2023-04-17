@@ -7,19 +7,15 @@ using UnityEngine;
 
 public class ButtonInteraction : MonoBehaviour
 {
-    // Initialize a variable to hold the UI popup window to display upon interaction
-    [SerializeField] private GameObject containerGameObject = null;
 
     // Initialize a variable to hold the message that a player is able to interact
     [SerializeField] private GameObject floattext;
+    // Reference to the target index variable in Ai_NavMesh.cs
+    [SerializeField] private Ai_NavMesh aiNavMesh;
+    // Reference to the NavMeshAgent component of the AI character
+    [SerializeField] private UnityEngine.AI.NavMeshAgent navAgent;
+    public bool interacted;
 
-    // Function to show the UI popup window
-    private void ShowPopup()
-    {
-        // Set the UI element to active
-        containerGameObject.SetActive(true);
-
-    }
 
     // Function to show the floating text letting player know they can interact
     public void ShowFloatingText()
@@ -36,8 +32,11 @@ public class ButtonInteraction : MonoBehaviour
     // Function that gets called by "PlayerInteract"
     public void Interact()
     {
-        // When the User interacts with the object show the associated UI element
-        ShowPopup();
+        navAgent.GetComponent<Ai_NavMesh>().currentTargetIndex = 0;
+        interacted = true;
+        
+        navAgent.SetDestination(aiNavMesh.targets[aiNavMesh.currentTargetIndex].position);
+        aiNavMesh.currentTargetIndex++;
     }
 
     // Update is called once per frame
