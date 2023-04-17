@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractLessOne : MonoBehaviour
 {
-
+    public GameObject ExitGameObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,23 @@ public class PlayerInteractLessOne : MonoBehaviour
                 }
             }
 
+        }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            // A float that controls the range of player interaction
+            float interactRange = 2f;
+
+            // Make a collider array and store every object that is overlapping in an array
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            // For each collider in that array
+            foreach (Collider collider in colliderArray)
+            {
+                //
+                if (collider.gameObject == ExitGameObject)
+                {
+                    SceneManager.LoadScene("Nav Hub");
+                    break;
+                }
+            }
         }
     }
 }
