@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:EducationThroughPlay/Assets/Sounds.meta
 guid: 73f30149f978c5d42a5512362c2404c9
+========
+guid: e2d00e2b86c004447b538e96ac8b2888
+>>>>>>>> ad1ce018f6b28845d19a273651660062e9678a93:EducationThroughPlay/Assets/Scripts/Lesson 2.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
