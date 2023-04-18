@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class PauseMenu : MonoBehaviour
             // Open the pause menu
             pauseMenu.SetActive(true);
         }       
+    }
+
+
+    public void returnToHub()
+    {
+        SceneManager.LoadScene("Nav Hub");
     }
 
     // Called by the exit to desktop button
