@@ -5,11 +5,11 @@ public class ChangeMaterial : MonoBehaviour
 {
     public GameObject objectToChange;
     public Material newMaterial;
-    public Button button;
+    public Button ButtonScript;
 
     void Start()
     {
-        button.onClick.AddListener(ChangeObjectMaterial);
+        ButtonScript.onClick.AddListener(ChangeObjectMaterial);
     }
 
     void ChangeObjectMaterial()
