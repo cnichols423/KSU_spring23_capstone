@@ -61,7 +61,7 @@ public class Ai_NavMesh : MonoBehaviour
   
     // Update is called once per frame
    void Update(){
-    if (buttonInteraction.interacted){
+    if (buttonInteraction != null && buttonInteraction.interacted){
         if (targets.Length == 0) return;
 
         if (navAgent.remainingDistance <= navAgent.stoppingDistance){
