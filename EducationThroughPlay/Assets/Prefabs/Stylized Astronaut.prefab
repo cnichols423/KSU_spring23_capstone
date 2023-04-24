@@ -275,7 +275,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3e9bd2af4844e4cb734482f04baa02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Y_ANGLE_MIN: 0
+  Y_ANGLE_MAX: 89
   lookAt: {fileID: 6063674902368666078}
   camTransform: {fileID: 6063674902368666078}
   distance: 8
@@ -555,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 6067189503022487660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6063669597995497686}
@@ -593,13 +595,13 @@ Rigidbody:
   m_GameObject: {fileID: 6067189503022487660}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1
+  m_Drag: 0
+  m_AngularDrag: 2
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 2
 --- !u!114 &5408206219497436899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,10 +614,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcc102dbb843b64e87af8046e3e51fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 30
-  sprintSpeed: 60
-  turnSpeed: 15
-  jumpHeight: 1000
+  walkSpeed: 5
+  sprintSpeed: 8
+  turnSpeed: 5
+  jumpHeight: 350
 --- !u!1 &6067190336270345004
 GameObject:
   m_ObjectHideFlags: 0

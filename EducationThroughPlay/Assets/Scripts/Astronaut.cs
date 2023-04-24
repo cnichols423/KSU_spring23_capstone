@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Astronaut : MonoBehaviour
 {
@@ -34,44 +35,59 @@ public class Astronaut : MonoBehaviour
     {
         if(forwardKey)
         {
-            rb.AddForce(transform.forward *  (sprintKey ? sprintSpeed : walkSpeed));
+            //rb.AddForce(transform.forward *  (sprintKey ? sprintSpeed : walkSpeed));
+            Vector3 vel = transform.forward * (sprintKey ? sprintSpeed : walkSpeed);
+            vel.y = rb.velocity.y;
+            rb.velocity = vel;
+           
         } 
 
         if(backwardKey)
         {
-            rb.AddForce(-transform.forward * walkSpeed);
+            //rb.AddForce(-transform.forward * walkSpeed);
+            //rb.velocity = transform.forward * walkSpeed * -1;
+            Vector3 vel = transform.forward * walkSpeed * -1;
+            vel.y = rb.velocity.y;
+            rb.velocity = vel;
         }
+
+        if(!forwardKey && !backwardKey)
+        {
+            Vector3 temp = rb.velocity;
+            temp.x = 0;
+            temp.z = 0;
+            rb.velocity = temp;
+        }
+
 
         if(rightKey)
         {
-            rb.AddTorque(transform.up * turnSpeed);
+            //rb.AddTorque(transform.up * turnSpeed);
+            //rb.angularVelocity = transform.up * turnSpeed;
+            transform.Rotate(transform.up * turnSpeed);
+
+
         }
 
         if (leftKey)
         {
-            rb.AddTorque(-transform.up * turnSpeed);
+            //rb.AddTorque(-transform.up * turnSpeed);
+            //rb.angularVelocity = transform.up * -turnSpeed;
+            transform.Rotate(transform.up * -turnSpeed);
+
         }
 
-        if(jumpKey && Mathf.Abs(rb.velocity.y) <= 0.001f) 
+        if(!rightKey && !leftKey)
         {
-            rb.AddForce(transform.up * jumpHeight);
+            rb.angularVelocity = Vector3.zero;
         }
+
+        
     }
 
     void animationControl()
     {
-        if(Mathf.Abs(rb.velocity.y) >= 0.05f) 
-        {
-            anim.SetInteger("AnimationPar", 3);
-
-        }else if(Mathf.Abs(rb.velocity.x) >= 0.1f || Mathf.Abs(rb.velocity.x) >= 0.1f)
-        {
-            anim.SetInteger("AnimationPar", 1);
-
-        } else
-        {
-            anim.SetInteger("AnimationPar", 0);
-        }
+        
     }
 
     void input() 
@@ -83,4 +99,36 @@ public class Astronaut : MonoBehaviour
         jumpKey = Input.GetKey(KeyCode.Space) ? true : false;
         sprintKey = Input.GetKey(KeyCode.LeftShift) ? true : false;
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (jumpKey && Mathf.Abs(rb.velocity.y) <= .50f)
+        {
+            rb.AddForce(transform.up * jumpHeight);
+        }
+
+        if (Mathf.Abs(rb.velocity.x) >= 0.1f || Mathf.Abs(rb.velocity.x) >= 0.1f)
+        {
+            anim.SetInteger("AnimationPar", 1);
+
+        }
+        else
+        {
+            anim.SetInteger("AnimationPar", 0);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        /*
+        if (Mathf.Abs(rb.velocity.y) >= 1.0f)
+        {
+            //anim.SetInteger("AnimationPar", 3);
+
+        }
+        */
+        anim.SetInteger("AnimationPar", 3);
+    }
+
+
 }
