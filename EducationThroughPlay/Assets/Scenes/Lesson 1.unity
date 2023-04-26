@@ -3454,6 +3454,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &363636358
 Transform:
   m_ObjectHideFlags: 0
@@ -4468,6 +4469,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &534715748
 Transform:
   m_ObjectHideFlags: 0
@@ -5951,6 +5953,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &697859338
 Transform:
   m_ObjectHideFlags: 0
@@ -11444,6 +11447,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6069098776951622546, guid: 7016cd7c3c8067a439e9972965c631cc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069098776951622546, guid: 7016cd7c3c8067a439e9972965c631cc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069098776951622546, guid: 7016cd7c3c8067a439e9972965c631cc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069098776951622546, guid: 7016cd7c3c8067a439e9972965c631cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.799999
       objectReference: {fileID: 0}
@@ -11584,7 +11599,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3219966
+  m_Name: pb_Mesh24430
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17464,6 +17479,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1203131693
 Transform:
   m_ObjectHideFlags: 0
@@ -18166,6 +18182,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1257266867
 Transform:
   m_ObjectHideFlags: 0
@@ -19470,6 +19487,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1394970586
 Transform:
   m_ObjectHideFlags: 0
@@ -20668,7 +20686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -51.21869, y: 22.90625}
+  m_AnchoredPosition: {x: -51.21875, y: 22.90625}
   m_SizeDelta: {x: 125, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1511890175
@@ -58936,6 +58954,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1744238209
 Transform:
   m_ObjectHideFlags: 0
@@ -60665,6 +60684,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1991753331
 Transform:
   m_ObjectHideFlags: 0
@@ -88800,6 +88820,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &6187427979732234944
 BoxCollider:
   m_ObjectHideFlags: 0
