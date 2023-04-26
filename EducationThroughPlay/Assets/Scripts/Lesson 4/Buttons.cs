@@ -211,7 +211,7 @@ public class Buttons : MonoBehaviour
     {
         // Check if the 
         // The float that controls the range of player interaction
-        float interactRange = 5f;
+        float interactRange = 3f;
 
         // Boolean to see if player is in range
         bool playerCheck = false;

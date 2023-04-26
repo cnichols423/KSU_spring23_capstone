@@ -16,23 +16,24 @@ public class PlayerInteract : MonoBehaviour
         // Make a collider array and store every object that is overlapping in an array
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
 
-        // Check if any of them are able to be interacted with
+         // For each collider in the array
         foreach (Collider collider in colliderArray)
         {
-            // If the game object has the "Buttons" script attached
+            // If the game object associated with the collider has the "Buttons" script attached
             if (collider.TryGetComponent(out Buttons button))
             {
-                // Show the floating text
+                // Call the showfloatingtext function in the "Buttons" script
                 button.ShowFloatingText();
             }
-            // If the game object has the "ButtonIneraction" script attached
+
+            // If the game object associated with the collider has the "ButtonIneration" script attached
             if (collider.TryGetComponent(out ButtonInteraction buttonInteract))
             {
-                // Show the floating text
+                // Call the showfloatingtext function in the "Buttons" script
                 buttonInteract.ShowFloatingText();
+                
             }
         }
-
 
         // When the player presses "E"
         if (Input.GetKeyDown(KeyCode.E))
