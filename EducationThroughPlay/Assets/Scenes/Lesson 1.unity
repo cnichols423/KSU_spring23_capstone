@@ -3414,10 +3414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcc102dbb843b64e87af8046e3e51fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 30
-  sprintSpeed: 60
-  turnSpeed: 15
-  jumpHeight: 1000
+  walkSpeed: 5
+  sprintSpeed: 8
+  turnSpeed: 5
+  jumpHeight: 350
 --- !u!54 &363636356
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -87911,10 +87911,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcc102dbb843b64e87af8046e3e51fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 30
-  sprintSpeed: 60
-  turnSpeed: 15
-  jumpHeight: 1000
+  walkSpeed: 5
+  sprintSpeed: 8
+  turnSpeed: 5
+  jumpHeight: 350
 --- !u!54 &5408206219665865667
 Rigidbody:
   m_ObjectHideFlags: 0
