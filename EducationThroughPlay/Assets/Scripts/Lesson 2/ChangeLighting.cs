@@ -17,7 +17,7 @@ public class ChangeLighting : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.Q))
+        if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             currentColorIndex = (currentColorIndex + 1) % colors.Length;
             targetLight.color = colors[currentColorIndex];

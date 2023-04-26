@@ -32,7 +32,7 @@ public class DialogueBox : MonoBehaviour
         inMessage = new Queue<char>();
 
         //EXAMPLE USAGE
-        sendMessage("Hi Jason, Welcome to Game Island!");
+        //sendMessage("Hi Jason, Welcome to Game Island!");
 
         
     }
@@ -83,6 +83,7 @@ public class DialogueBox : MonoBehaviour
                 if(panel.color.a <= 0.0f)
                 {
                     isDialogue = false;
+                    outro = false;
                 }
             }
 

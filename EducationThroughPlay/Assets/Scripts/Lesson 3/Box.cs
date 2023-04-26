@@ -6,11 +6,16 @@ public class Box : MonoBehaviour
 {
     MeshRenderer mr;
     Color c;
+
+    DialogueBox db;
+
     // Start is called before the first frame update
     void Start()
     {
         mr = GetComponent<MeshRenderer>();
         c = mr.material.color;
+
+        db = GameObject.Find("Dialogue Box").GetComponentInChildren<DialogueBox>();
     }
 
     // Update is called once per frame
@@ -25,7 +30,10 @@ public class Box : MonoBehaviour
         {
             mr.material.color = Color.yellow;
             
-
+            if(!db.hasDialogue())
+            {
+                db.sendMessage("A box collider with a trigger. No physics...");
+            }
         }
     }
 

@@ -13,6 +13,7 @@ public class Spotlights : MonoBehaviour
 
     bool turnOnLights;
 
+    DialogueBox db;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class Spotlights : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
+
+        db = GameObject.Find("Dialogue Box").GetComponentInChildren<DialogueBox>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class Spotlights : MonoBehaviour
         {
             turnOnLights = true;
             timer = 0.0f;
+            db.sendMessage("Lesson 3: Rigidbodies, collliders, and triggers. Try to find a way to the exit!");
         }
 
         if(turnOnLights && timer > lightTimerIncrement && index < lightsCount)
